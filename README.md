@@ -1,52 +1,29 @@
-# Tree_base_models
-Decision Tree, Rndom Forest, SGB Regressor
-# Car Price Prediction
+# Baseball salary prediction
 
-## Project Overview
+Predict baseball players’ salaries from seasonal and career performance statistics, in the spirit of a Moneyball-style analysis of the transfer market.
 
-This project analyses baseball players in transfer market using tree based models.
+## Data
 
-## Objectives
+`cs_05.csv` includes batting and fielding stats (`AtBat`, `Hits`, `HmRun`, `Runs`, `RBI`, `Walks`, career totals, `Years`, `League`, `Division`, `PutOuts`, `Assists`, `Errors`) and `Salary`.
 
-- Clean and prepare the dataset
-- Explore relationships between vehicle features and price
-- Build regression models
-- Evaluate model performance
-- Identify the most important predictors of price
+## Method
 
-## Tools and Technologies
+`Decision_Tree.ipynb` prepares the data (including a Box-Cox transform of the target in the reported comparison) and trains:
 
-- Python
-- Jupyter Notebook
-- Pandas
-- NumPy
-- Matplotlib
-- Scikit-learn
+- Linear regression
+- Ridge regression
+- Decision tree
+- Random forest
+- Stochastic gradient boosting (SGB) regressor
 
-## Project Structure
+Models are compared on RMSE, MAPE, MAE, and other absolute-error summaries.
 
-- `decision_tree.ipynb`: Main analysis notebook
-- `data/`: Dataset or sample data
-- `requirements.txt`: Required Python libraries
+## Findings
 
-## Methodology
+In the notebook’s Box-Cox comparison table, the SGB regressor had the lowest RMSE (202.4) and MAPE (34.2), ahead of random forest (RMSE 208.4, MAPE 36.2) and a decision tree (RMSE 231.5, MAPE 40.9). Linear and ridge models were weaker on this split. These figures are from the committed notebook outputs.
 
-1. Data cleaning
-2. Exploratory data analysis
-3. Feature engineering
-4. Train-test split
-5. Model training
-6. Model evaluation
+## How to run
 
-## Model Evaluation
-
-The models are evaluated using:
-
-- RMSE
-- MAE
-- R-squared
-
-## Author
-
-Amir Mehdi Mostofi  
-Master of Business Analytics
+```bash
+jupyter notebook Decision_Tree.ipynb
+```
